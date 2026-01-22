@@ -1,0 +1,22 @@
+@import "tailwindcss";
+@import '@fontsource/sora';
+@import '@fontsource/sora/500.css';
+@import '@fontsource/sora/600.css';
+@import '@fontsource/sora/700.css';
+
+@theme{
+  --color-primary: #1f0a4d;
+  --color-secondary: #63e3c2;
+  --color-background: #4518ac;
+  --color-cta: #fad318;
+  --color-highlight: #84e916;
+  --color-location: #25b895;
+  --color-text-secondary: #837b99;
+  --color-cashback: #72c52b;
+
+  --font-family-sans: 'Sora', system-ui, -apple-system, sans-serif;
+}
+
+body {
+  font-family: 'Sora', system-ui, -apple-system, sans-serif;
+}
