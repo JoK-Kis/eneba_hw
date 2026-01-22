@@ -17,8 +17,17 @@ func Connect() {
 	port := os.Getenv("DB_PORT")
 	user := os.Getenv("DB_USER")
 	dbname := os.Getenv("DB_NAME")
+	password := os.Getenv("DB_PASSWORD")
+	sslmode := os.Getenv("DB_SSLMODE")
 
-	var dsn string = fmt.Sprintf("host=%s port=%s user=%s dbname=%s sslmode=disable", host, port, user, dbname) 
+	var dsn string
+	if password == "" {
+		dsn = fmt.Sprintf("host=%s port=%s user=%s dbname=%s sslmode=%s", 
+			host, port, user, dbname, sslmode)
+	} else {
+		dsn = fmt.Sprintf("host=%s port=%s user=%s password=%s dbname=%s sslmode=%s", 
+			host, port, user, password, dbname, sslmode)
+	}
 
 	var err error
 	DB, err = gorm.Open(postgres.Open(dsn), &gorm.Config{})

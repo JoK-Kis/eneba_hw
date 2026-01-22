@@ -33,9 +33,10 @@ function App() {
   useEffect(() => {
     setError(null);
     
+    const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8080';
     const url = searchQuery 
-      ? `http://localhost:8080/api/search?q=${encodeURIComponent(searchQuery)}`
-      : 'http://localhost:8080/api/search';
+      ? `${API_URL}/api/search?q=${encodeURIComponent(searchQuery)}`
+      : `${API_URL}/api/search`;
 
     fetch(url)
       .then(res => {

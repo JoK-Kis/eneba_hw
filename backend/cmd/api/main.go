@@ -12,6 +12,7 @@ func main() {
 	config.LoadConfig()
 	database.Connect()
 	database.Migrate()
+	database.Seed()
 
 	router := gin.Default()
 	router.Use(middleware.CORS())
