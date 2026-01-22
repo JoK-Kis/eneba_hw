@@ -73,13 +73,15 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen bg-background text-white">
-      <Header onSearchChange={setSearchQuery} />
-      
-      <main className="max-w-5xl mx-auto py-4">
-        <p className="text-xs mb-4 font-light">Results found: {products.length}</p>
+    <div className="flex flex-col min-h-screen bg-background text-white px-4 items-center">
 
-        <div className="grid grid-cols-4 gap-9">
+      <main className="inline-flex flex-col items-center justify-center">
+
+        <Header onSearchChange={setSearchQuery} />
+
+        <p className="flex sm:justify-start justify-center text-xs font-light mb-4 w-full">Results found: {products.length}</p>
+
+        <div className="grid xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-9">
           {products.map((product) => (
             <ProductCard
               key={product.id}
