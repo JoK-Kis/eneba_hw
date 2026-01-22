@@ -21,7 +21,7 @@ func SearchProducts(c *gin.Context) {
 	} else {
 		searchPattern := "%" + query + "%"
 		if err := database.DB.Preload("Platform").
-			Where("name ILIKE ? OR word_similarity(?, name) > 0.15", searchPattern, query).
+			Where("name ILIKE ? OR word_similarity(?, name) > 0.4", searchPattern, query).
 			Order(gorm.Expr("word_similarity(?, name) DESC", query)).
 			Find(&products).Error; err != nil {
 			c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to search products"})
