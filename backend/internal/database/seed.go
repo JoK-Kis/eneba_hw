@@ -22,6 +22,7 @@ func Seed() {
 		{Name: "EA", IconURL: "./assets/platform/EA.svg"},
 		{Name: "Origin", IconURL: "./assets/platform/origin.svg"},
 		{Name: "Rockstar", IconURL: "./assets/platform/rockstar_social_club.svg"},
+		{Name: "Green Gift", IconURL: "./assets/platform/Green gift.svg"},
 	}
 
 	for _, platform := range platforms {
