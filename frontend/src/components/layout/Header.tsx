@@ -20,7 +20,7 @@ export default function Header({ onSearchChange }: HeaderProps) {
                     <Language_Currency_Selector />
                 </div>
 
-                <div className="flex items-center lg:gap-4 gap-1 hidden sm:flex">
+                <div className=" items-center lg:gap-4 gap-1 hidden sm:flex">
                     <Heart className="w-6 h-6" />
                     <ShoppingCart className="w-6 h-6" />
                     <Profile_Icon />
