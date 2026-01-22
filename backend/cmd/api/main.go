@@ -14,6 +14,7 @@ func main() {
 	database.Migrate()
 	database.Seed()
 
+	gin.SetMode(gin.ReleaseMode)
 	router := gin.Default()
 	router.Use(middleware.CORS())
 	router.GET("/api/search", handlers.SearchProducts)
