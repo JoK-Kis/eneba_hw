@@ -12,7 +12,7 @@ export default function Header({ onSearchChange }: HeaderProps) {
     return (
         <header className="flex justify-between h-20 w-full">
             <div className="flex items-center py-4 w-full justify-between lg:gap-4 gap-2">
-                <div className="flex h-full items-center lg:gap-4 gap-2 w-fit">
+                <div className="flex h-full items-center lg:gap-4 gap-2 w-full">
                     <a href="/" className="h-full flex items-center shrink-0">
                         <img src={Logo} alt="Eneba Logo" className="h-12 w-auto cursor-pointer" />
                     </a>
