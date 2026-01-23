@@ -38,7 +38,9 @@ function App() {
       ? `${API_URL}/list?search=${encodeURIComponent(searchQuery)}`
       : `${API_URL}/list`;
 
-    fetch(url)
+    fetch(url, {
+      signal: AbortSignal.timeout(80000),
+    })
       .then((res) => {
         if (!res.ok) {
           throw new Error("Failed to fetch products");
@@ -59,7 +61,10 @@ function App() {
   if (initialLoading) {
     return (
       <div className="min-h-screen bg-background text-white flex items-center justify-center">
-        <p className="text-xl">Loading products...</p>
+        <div className="text-center">
+          <p className="text-xl mb-2">Loading products...</p>
+          <p className="text-sm text-text-secondary">Backend may take up to 1 minute to start since it's hosted on a free tier service</p>
+        </div>
       </div>
     );
   }
