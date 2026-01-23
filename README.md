@@ -2,7 +2,9 @@
 
 Product search with fuzzy matching. React, Go, and PostgreSQL.
 
-**Live:** https://eneba-hw-ten.vercel.app
+**Live:** https://eneba-hw-ten.vercel.app  
+*Note: Backend is hosted on free tier services and may take up to 1 minute to start after inactivity.*
+
 
 ## Stack
 
