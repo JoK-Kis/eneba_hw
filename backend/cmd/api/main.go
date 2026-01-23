@@ -17,6 +17,6 @@ func main() {
 	gin.SetMode(gin.ReleaseMode)
 	router := gin.Default()
 	router.Use(middleware.CORS())
-	router.GET("/api/search", handlers.SearchProducts)
+	router.GET("/list", handlers.SearchProducts)
 	router.Run(":" + config.GetPort())
 }

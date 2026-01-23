@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
-import Header from './components/layout/Header';
-import ProductCard from './components/product/ProductCard';
-import { getProductImage, getPlatformIcon } from './utils/assetMap';
+import { useState, useEffect } from "react";
+import Header from "./components/layout/Header";
+import ProductCard from "./components/product/ProductCard";
+import { getProductImage, getPlatformIcon } from "./utils/assetMap";
 
 interface Platform {
   id: number;
@@ -28,31 +28,31 @@ function App() {
   const [products, setProducts] = useState<Product[]>([]);
   const [initialLoading, setInitialLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
     setError(null);
-    
-    const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8080';
-    const url = searchQuery 
-      ? `${API_URL}/api/search?q=${encodeURIComponent(searchQuery)}`
-      : `${API_URL}/api/search`;
+
+    const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
+    const url = searchQuery
+      ? `${API_URL}/list?search=${encodeURIComponent(searchQuery)}`
+      : `${API_URL}/list`;
 
     fetch(url)
-      .then(res => {
+      .then((res) => {
         if (!res.ok) {
-          throw new Error('Failed to fetch products');
+          throw new Error("Failed to fetch products");
         }
         return res.json();
       })
-      .then(data => {
+      .then((data) => {
         setProducts(data);
         setInitialLoading(false);
       })
-      .catch(err => {
+      .catch((err) => {
         setError(err.message);
         setInitialLoading(false);
-        console.error('Error fetching products:', err);
+        console.error("Error fetching products:", err);
       });
   }, [searchQuery]);
 
@@ -74,12 +74,12 @@ function App() {
 
   return (
     <div className="flex flex-col min-h-screen bg-background text-white px-4 items-center">
-
       <main className="inline-flex flex-col items-center justify-center">
-
         <Header onSearchChange={setSearchQuery} />
 
-        <p className="flex sm:justify-start justify-center text-xs font-light mb-4 w-full">Results found: {products.length}</p>
+        <p className="flex sm:justify-start justify-center text-xs font-light mb-4 w-full">
+          Results found: {products.length}
+        </p>
 
         <div className="grid xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-9">
           {products.map((product) => (

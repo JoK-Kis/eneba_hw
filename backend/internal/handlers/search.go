@@ -10,7 +10,7 @@ import (
 )
 
 func SearchProducts(c *gin.Context) {
-	query := c.Query("q")
+	query := c.Query("search")
 	var products []models.Product
 
 	if query == "" {
