@@ -22,7 +22,7 @@ export default function SearchTable({ onSearchChange }: SearchTableProps) {
 
     return (
         <div className="flex items-center border border-white h-full max-w-[400px] w-full justify-between px-2">
-            <Search className="w-6 h-6 text-white" />
+            <Search className="w-4 h-4 sm:w-6 sm:h-6 text-white" />
             <input
                 type="text"
                 value={searchValue}
