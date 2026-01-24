@@ -79,7 +79,7 @@ function App() {
 
   return (
     <div className="flex flex-col min-h-screen bg-background text-white px-4 items-center">
-      <main className="flex flex-col items-center w-full max-w-7xl">
+      <main className="flex flex-col items-center xl:w-[1008px] lg:w-[744px] md:w-[486px] w-3/4">
         <Header onSearchChange={setSearchQuery} />
 
         <p className="flex sm:justify-start justify-center text-xs font-light mb-4 w-full">
