@@ -39,7 +39,7 @@ function App() {
       : `${API_URL}/list`;
 
     fetch(url, {
-      signal: AbortSignal.timeout(80000),
+      signal: AbortSignal.timeout(180000),
     })
       .then((res) => {
         if (!res.ok) {
@@ -52,7 +52,13 @@ function App() {
         setInitialLoading(false);
       })
       .catch((err) => {
-        setError(err.message);
+        if (err.name === "TimeoutError") {
+          setError(
+            "Request timed out. The server might be taking longer than expected to start. Please refresh the page.",
+          );
+        } else {
+          setError(err.message);
+        }
         setInitialLoading(false);
         console.error("Error fetching products:", err);
       });
@@ -63,7 +69,10 @@ function App() {
       <div className="min-h-screen bg-background text-white flex items-center justify-center">
         <div className="text-center">
           <p className="text-xl mb-2">Loading products...</p>
-          <p className="text-sm text-text-secondary">Backend may take up to 1 minute to start since it's hosted on a free tier service</p>
+          <p className="text-sm text-text-secondary">
+            Backend may take up to 1 minute to start since it's hosted on a free
+            tier service
+          </p>
         </div>
       </div>
     );
